@@ -1,4 +1,10 @@
-//generate password function
+const lower = 'abcdefghijklmnopqrstuvwxyz';
+const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const num = '0123456789';
+const special = '!@#$%&*_?-()';
+
+
+//generate password function with random lowercase, uppercase, numbers, special characters of a predetermined length between 8 and 128 characters.
 var generatePassword = function() {
   
 }
@@ -15,18 +21,35 @@ var passwordCriteria = function() {
 
   promptCriteria = promptCriteria.toLowerCase();
 
-  // if 'length' we choose a length of at least 8 characters and no more than 12 characters.
-  if (promptCriteria = "LENGTH") {
-    var passwordLength = window.prompt('Choose a password length between 8 and 12 characters.');
+  // if 'length' we choose a length of at least 8 characters and no more than 128 characters.
+  if (promptCriteria === "length") {
+    var passwordLength = window.prompt('Choose a password length between 8 and 128 characters.');
+    
     // if passwordLength is less than 8 or greater than 12, we ask to please input a valid number.
     if (passwordLength < 8 || passwordLength > 12) {
       window.alert("You need to provide a valid answer! Please try again.");
       return passwordCriteria();
     } else {
-      console.log(passwordLength);
+      localStorage.setItem("passwordLength", passwordLength);
     }
   }
 
+  // if 'lowercase' allow lowercase to be used
+  if (promptCriteria === "lowercase") {
+    window.confirm("We will include LOWERCASE letters.");
+  }
+  // if 'uppercase' allow uppercase to be used
+  if (promptCriteria === "uppercase") {
+    window.confirm("We will include UPPERCASE letters.");
+  }
+  // if 'numeric' allow numbers to be used
+  if (promptCriteria === "numeric") {
+    window.confirm("We will include NUMBERS.");
+  }
+  // if 'specialchars' allow special characters to be used
+  if (promptCriteria === "specialchars"){
+    window.confirm("We will include SPECIAL CHARACTERS.");
+  }
   
 
 };
