@@ -11,7 +11,7 @@ var generatePassword = function() {
 
 // prompt for password criteria
 var passwordCriteria = function() {
-  var promptCriteria = window.prompt('Please select which criteria to include in your password. Enter "LENGTH", "LOWERCASE", "UPPERCASE", "NUMERIC", or "SPECIALCHARS" to choose.');
+  var promptCriteria = window.prompt('Please select which criteria to include in your password. Please type "LENGTH" to start.');
 
   //enter the conditional recursive function call here!
   if (promptCriteria === "" || promptCriteria === null) {
@@ -31,7 +31,7 @@ var passwordCriteria = function() {
       return passwordCriteria();
     } else {
       localStorage.setItem("passwordLength", passwordLength);
-      window.prompt("Length has been set!"); 
+      window.alert("Length has been set!"); 
     }
   }
 
@@ -42,7 +42,7 @@ var passwordCriteria = function() {
     window.confirm("We will include LOWERCASE letters.");
   }
   else {
-    window.alert("We will not include LOWERCASE letters.");
+    window.confirm("We will not include LOWERCASE letters.");
   }
 
   // if 'uppercase' allow uppercase to be used
@@ -52,22 +52,48 @@ var passwordCriteria = function() {
     window.confirm("We will include UPPERCASE letters.");
   }
   else {
-    window.alert("We will not include UPPERCASE letters.");
+    window.confirm("We will not include UPPERCASE letters.");
   }
 
   // if 'numeric' allow numbers to be used
-  if (promptCriteria === "numeric") {
+  var numConfirm = window.confirm("Do you want to include UPPERCASE letters?");
+  if (numConfirm) {
     localStorage.setItem("num", num);
     window.confirm("We will include NUMBERS.");
   }
+  else {
+    window.confirm("We will not include NUMBERS.");
+  }
+
   // if 'specialchars' allow special characters to be used
-  if (promptCriteria === "specialchars"){
+  var spCharsConfirm = window.confirm("Do you want to include SPECIAL CHARACTERS?");
+  if (spCharsConfirm){
     localStorage.setItem("special", special);
     window.confirm("We will include SPECIAL CHARACTERS.");
+  }
+  else {
+    window.confirm("We will not include NUMBERS.");
   }
   
 
 };
+
+//variable to store local storage selections
+
+function keyGen(keyLength) {
+  var i, key = "", characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+  var charactersLength = characters.length;
+
+  for (i = 0; i < keyLength; i++) {
+      key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+  }
+
+  return key;
+}
+
+
+keyGen(12);
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
