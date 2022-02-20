@@ -31,19 +31,30 @@ var passwordCriteria = function() {
       return passwordCriteria();
     } else {
       localStorage.setItem("passwordLength", passwordLength);
+      window.prompt("Length has been set!"); 
     }
   }
 
   // if 'lowercase' allow lowercase to be used
-  if (promptCriteria === "lowercase") {
+  var lowerConfirm = window.confirm("Do you want to include LOWERCASE letters?");
+  if (lowerConfirm) {
     localStorage.setItem("lower", lower);
     window.confirm("We will include LOWERCASE letters.");
   }
+  else {
+    window.alert("We will not include LOWERCASE letters.");
+  }
+
   // if 'uppercase' allow uppercase to be used
-  if (promptCriteria === "uppercase") {
+  var upperConfirm = window.confirm("Do you want to include UPPERCASE letters?");
+  if (upperConfirm) {
     localStorage.setItem("upper", upper);
     window.confirm("We will include UPPERCASE letters.");
   }
+  else {
+    window.alert("We will not include UPPERCASE letters.");
+  }
+
   // if 'numeric' allow numbers to be used
   if (promptCriteria === "numeric") {
     localStorage.setItem("num", num);
