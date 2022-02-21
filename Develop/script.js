@@ -4,45 +4,25 @@ const num = '0123456789';
 const special = '!@#$%&*_?-()';
 
 
-// var keyGen = function(keyLength) {
-//   var i, key = "", characters = lower + upper + num + special;
-
-//   var charactersLength = characters.length;
-
-//   for (i = 0; i < keyLength; i++) {
-//       key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
-//   }
-
-//   return key;
-// }
-
-
-// console.log(keyGen(11));
-
-
 // prompt for password criteria
-var passwordCriteria = function() {
+var generatePassword = function() {
   var promptCriteria = window.prompt('Please select which criteria to include in your password. Please type "LENGTH" to start.');
 
   //enter the conditional recursive function call here!
   if (promptCriteria === "" || promptCriteria === null) {
     window.alert("You need to provide a valid answer! Please try again.");
-    return passwordCriteria();
+    return generatePassword();
   }
 
-  promptCriteria = promptCriteria.toLowerCase();
-
   // if 'length' we choose a length of at least 8 characters and no more than 128 characters.
-  if (promptCriteria === "length") {
+  if (promptCriteria === "length" || promptCriteria === "LENGTH") {
     var passwordLength = window.prompt('Choose a password length between 8 and 128 characters.');
     
     // if passwordLength is less than 8 or greater than 12, we ask to please input a valid number.
     if (passwordLength < 8 || passwordLength > 128) {
       window.alert("You need to provide a valid answer! Please try again.");
-      return passwordCriteria();
-    } else {
-      window.alert("Length has been set!"); 
-    }
+      return generatePassword();
+    } 
     console.log(passwordLength);
   }
 
