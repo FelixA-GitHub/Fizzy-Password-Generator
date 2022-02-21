@@ -3,23 +3,22 @@ const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const num = '0123456789';
 const special = '!@#$%&*_?-()';
 
-function generateString(length) {
-  let result = ' ';
-  const charactersLength = lower.length;
-  for ( let i = 0; i < length; i++ ) {
-      result += lower.charAt(Math.floor(Math.random() * charactersLength));
-  }
 
-  return result;
-}
+// var keyGen = function(keyLength) {
+//   var i, key = "", characters = lower + upper + num + special;
 
-alert(generateString(5));
+//   var charactersLength = characters.length;
+
+//   for (i = 0; i < keyLength; i++) {
+//       key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+//   }
+
+//   return key;
+// }
 
 
-//generate password function with random lowercase, uppercase, numbers, special characters of a predetermined length between 8 and 128 characters.
-var generatePassword = function() {
-  let lower = localStorage.getItem("lower");
-}
+// console.log(keyGen(11));
+
 
 // prompt for password criteria
 var passwordCriteria = function() {
@@ -47,141 +46,273 @@ var passwordCriteria = function() {
     console.log(passwordLength);
   }
 
+
   // if 'lowercase' allow lowercase to be used
   var lowerConfirm = window.confirm("Do you want to include LOWERCASE letters?");
   if (lowerConfirm) {
     localStorage.setItem("lower", lower);
-    window.confirm("We will include LOWERCASE letters.");
-
-    function generateString(length) {
-      let lowResult = ' ';
-      const charactersLength = lower.length;
-      for ( let i = 0; i < length; i++ ) {
-          lowResult += lower.charAt(Math.floor(Math.random() * charactersLength));
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = lower;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
       }
     
-      return lowResult;
+      return key;
     }
     
-    console.log(generateString(passwordLength));
-  }
-  else {
-    window.confirm("We will not include LOWERCASE letters.");
-  }
+    
+    console.log(keyGen(passwordLength));
+    
+  } 
 
   // if 'uppercase' allow uppercase to be used
   var upperConfirm = window.confirm("Do you want to include UPPERCASE letters?");
   if (upperConfirm) {
     localStorage.setItem("upper", upper);
-    window.confirm("We will include UPPERCASE letters.");
-
-    function generateString(length) {
-      let upResult = ' ';
-      const charactersLength = upper.length;
-      for ( let i = 0; i < length; i++ ) {
-          upResult += upper.charAt(Math.floor(Math.random() * charactersLength));
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = upper;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
       }
     
-      return upResult;
+      return key;
     }
     
-    console.log(generateString(passwordLength));
-  
-  }
-  else {
-    window.confirm("We will not include UPPERCASE letters.");
-  }
+    
+    console.log(keyGen(passwordLength));
+  } 
 
   // if 'numeric' allow numbers to be used
   var numConfirm = window.confirm("Do you want to include NUMBERS?");
   if (numConfirm) {
     localStorage.setItem("num", num);
-    window.confirm("We will include NUMBERS.");
-
-    function generateString(length) {
-      let numResult = ' ';
-      const charactersLength = num.length;
-      for ( let i = 0; i < length; i++ ) {
-          numResult += num.charAt(Math.floor(Math.random() * charactersLength));
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = num;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
       }
     
-      return numResult;
+      return key;
     }
     
-    console.log(generateString(passwordLength));
-  
-  }
-  else {
-    window.confirm("We will not include NUMBERS.");
+    
+    console.log(keyGen(passwordLength));
   }
 
   // if 'specialchars' allow special characters to be used
   var spCharsConfirm = window.confirm("Do you want to include SPECIAL CHARACTERS?");
   if (spCharsConfirm){
     localStorage.setItem("special", special);
-    window.confirm("We will include SPECIAL CHARACTERS.");
-
-    function generateString(length) {
-      let spCharResult = ' ';
-      const charactersLength = special.length;
-      for ( let i = 0; i < length; i++ ) {
-          spCharResult += special.charAt(Math.floor(Math.random() * charactersLength));
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = special;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
       }
     
-      return spCharResult;
+      return key;
     }
     
-    console.log(generateString(passwordLength));
-  
-  }
-  else {
-    window.confirm("We will not include SPECIAL CHARACTERS.");
+    
+    console.log(keyGen(passwordLength));
   }
   
+  if (lowerConfirm && upperConfirm){
+    localStorage.setItem("lower", lower);
+    localStorage.setItem("upper", upper);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = lower + upper;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (lowerConfirm && numConfirm){
+    localStorage.setItem("lower", lower);
+    localStorage.setItem("num", num);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = lower + num;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (lowerConfirm && spCharsConfirm){
+    localStorage.setItem("lower", lower);
+    localStorage.setItem("special", special);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = lower + special;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (lowerConfirm && upperConfirm && numConfirm){
+    localStorage.setItem("lower", lower);
+    localStorage.setItem("upper", upper);
+    localStorage.setItem("num", num);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = lower + upper + num;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (lowerConfirm && upperConfirm && spCharsConfirm){
+    localStorage.setItem("lower", lower);
+    localStorage.setItem("upper", upper);
+    localStorage.setItem("special", special);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = lower + upper + special;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (upperConfirm && numConfirm){
+    localStorage.setItem("num", num);
+    localStorage.setItem("upper", upper);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = num + upper;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (upperConfirm && spCharsConfirm){
+    localStorage.setItem("upper", upper);
+    localStorage.setItem("special", special);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = upper + special;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+
+  if (upperConfirm && numConfirm && spCharsConfirm){
+    localStorage.setItem("special", special);
+    localStorage.setItem("upper", upper);
+    localStorage.setItem("num", num);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = special + upper + num;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    
+    console.log(keyGen(passwordLength));
+  }
+
+  if (numConfirm && spCharsConfirm){
+    localStorage.setItem("num", num);
+    localStorage.setItem("special", special);
+    
+    var keyGen = function(keyLength) {
+      var i, key = "", characters = num + special;
+    
+      var charactersLength = characters.length;
+    
+      for (i = 0; i < keyLength; i++) {
+          key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
+      }
+    
+      return key;
+    }
+    
+    console.log(keyGen(passwordLength));
+  }
 
 };
-
-// program to generate random strings
-
-//variable to store local storage selections
-
-// function randomNum(hi){
-//   return Math.floor(Math.random()*hi);
-// } 
-// function randomUpChar(){
-//   return String.fromCharCode(randomNum()).toUpperCase();
-// }
-// function randomLowChar(){
-//   return String.fromCharCode(randomNum()).toLowerCase();
-// }
-// function randomSpChar(){
-//   return String.fromCharCode(randomNum(100));
-// }
-// function randomString(length){
-//  var str = "";
-//  for(var i = 0; i < length; ++i){
-//       str += randomUpChar() && randomLowChar() &&randomSpChar();
-//  }
-//  return str;
-// }
-// var RandomString = randomString(30); //32 length string
-
-// alert(RandomString);
-
-// function keyGen(keyLength) {
-//   var i, key = "", characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-//   var charactersLength = characters.length;
-
-//   for (i = 0; i < keyLength; i++) {
-//       key += characters.substr(Math.floor((Math.random() * charactersLength) + 1), 1);
-//   }
-
-//   return key;
-// }
-
-
-// keyGen(12);
+  
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
