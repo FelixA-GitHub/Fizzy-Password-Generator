@@ -3,6 +3,18 @@ const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 const num = '0123456789';
 const special = '!@#$%&*_?-()';
 
+function generateString(length) {
+  let result = ' ';
+  const charactersLength = lower.length;
+  for ( let i = 0; i < length; i++ ) {
+      result += lower.charAt(Math.floor(Math.random() * charactersLength));
+  }
+
+  return result;
+}
+
+alert(generateString(5));
+
 
 //generate password function with random lowercase, uppercase, numbers, special characters of a predetermined length between 8 and 128 characters.
 var generatePassword = function() {
@@ -30,10 +42,9 @@ var passwordCriteria = function() {
       window.alert("You need to provide a valid answer! Please try again.");
       return passwordCriteria();
     } else {
-      localStorage.setItem("passwordLength", passwordLength);
-      return passwordLength;
       window.alert("Length has been set!"); 
     }
+    console.log(passwordLength);
   }
 
   // if 'lowercase' allow lowercase to be used
@@ -41,6 +52,18 @@ var passwordCriteria = function() {
   if (lowerConfirm) {
     localStorage.setItem("lower", lower);
     window.confirm("We will include LOWERCASE letters.");
+
+    function generateString(length) {
+      let lowResult = ' ';
+      const charactersLength = lower.length;
+      for ( let i = 0; i < length; i++ ) {
+          lowResult += lower.charAt(Math.floor(Math.random() * charactersLength));
+      }
+    
+      return lowResult;
+    }
+    
+    console.log(generateString(passwordLength));
   }
   else {
     window.confirm("We will not include LOWERCASE letters.");
@@ -51,16 +74,42 @@ var passwordCriteria = function() {
   if (upperConfirm) {
     localStorage.setItem("upper", upper);
     window.confirm("We will include UPPERCASE letters.");
+
+    function generateString(length) {
+      let upResult = ' ';
+      const charactersLength = upper.length;
+      for ( let i = 0; i < length; i++ ) {
+          upResult += upper.charAt(Math.floor(Math.random() * charactersLength));
+      }
+    
+      return upResult;
+    }
+    
+    console.log(generateString(passwordLength));
+  
   }
   else {
     window.confirm("We will not include UPPERCASE letters.");
   }
 
   // if 'numeric' allow numbers to be used
-  var numConfirm = window.confirm("Do you want to include UPPERCASE letters?");
+  var numConfirm = window.confirm("Do you want to include NUMBERS?");
   if (numConfirm) {
     localStorage.setItem("num", num);
     window.confirm("We will include NUMBERS.");
+
+    function generateString(length) {
+      let numResult = ' ';
+      const charactersLength = num.length;
+      for ( let i = 0; i < length; i++ ) {
+          numResult += num.charAt(Math.floor(Math.random() * charactersLength));
+      }
+    
+      return numResult;
+    }
+    
+    console.log(generateString(passwordLength));
+  
   }
   else {
     window.confirm("We will not include NUMBERS.");
@@ -71,28 +120,53 @@ var passwordCriteria = function() {
   if (spCharsConfirm){
     localStorage.setItem("special", special);
     window.confirm("We will include SPECIAL CHARACTERS.");
+
+    function generateString(length) {
+      let spCharResult = ' ';
+      const charactersLength = special.length;
+      for ( let i = 0; i < length; i++ ) {
+          spCharResult += special.charAt(Math.floor(Math.random() * charactersLength));
+      }
+    
+      return spCharResult;
+    }
+    
+    console.log(generateString(passwordLength));
+  
   }
   else {
-    window.confirm("We will not include NUMBERS.");
+    window.confirm("We will not include SPECIAL CHARACTERS.");
   }
   
 
 };
 
+// program to generate random strings
+
 //variable to store local storage selections
 
-function randomString(length, chars) {
-  var mask = '';
-  if (chars.indexOf('a') > -1) mask += 'abcdefghijklmnopqrstuvwxyz';
-  if (chars.indexOf('A') > -1) mask += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  if (chars.indexOf('#') > -1) mask += '0123456789';
-  if (chars.indexOf('!') > -1) mask += '~`!@#$%^&*()_+-={}[]:";\'<>?,./|\\';
-  var result = '';
-  for (var i = length; i > 0; --i) result += mask[Math.round(Math.random() * (mask.length - 1))];
-  return result;
-}
+// function randomNum(hi){
+//   return Math.floor(Math.random()*hi);
+// } 
+// function randomUpChar(){
+//   return String.fromCharCode(randomNum()).toUpperCase();
+// }
+// function randomLowChar(){
+//   return String.fromCharCode(randomNum()).toLowerCase();
+// }
+// function randomSpChar(){
+//   return String.fromCharCode(randomNum(100));
+// }
+// function randomString(length){
+//  var str = "";
+//  for(var i = 0; i < length; ++i){
+//       str += randomUpChar() && randomLowChar() &&randomSpChar();
+//  }
+//  return str;
+// }
+// var RandomString = randomString(30); //32 length string
 
-document.write(randomString(23, '#A!'));
+// alert(RandomString);
 
 // function keyGen(keyLength) {
 //   var i, key = "", characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
