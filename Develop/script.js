@@ -1,7 +1,20 @@
-const lower = 'abcdefghijklmnopqrstuvwxyz';
-const upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const num = '0123456789';
-const special = '!@#$%&*_?-()';
+let lower = 'abcdefghijklmnopqrstuvwxyz';
+let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let num = '0123456789';
+let special = '!@#$%&*_?-()';
+
+// let length = 5;
+// let key = '';
+// let i = 0;
+// let lower = 'abcdefghijklmnopqrstuvwxyz';
+
+// do {
+//   i = i + 1;
+//   key = lower + i;
+
+// } while (i < 5);
+
+// console.log(key.substr(Math.floor((Math.random() * i) + 1), length));
 
 
 // prompt for password criteria
