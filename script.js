@@ -1,4 +1,3 @@
-
 let lower = 'abcdefghijklmnopqrstuvwxyz';
 let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let num = '0123456789';
