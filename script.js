@@ -1,3 +1,4 @@
+
 let lower = 'abcdefghijklmnopqrstuvwxyz';
 let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 let num = '0123456789';
@@ -57,7 +58,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
     
   } 
 
@@ -78,7 +79,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   } 
 
   // if 'numeric' allow numbers to be used
@@ -98,7 +99,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   // if 'specialchars' allow special characters to be used
@@ -118,7 +119,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
   
   if (lowerConfirm && upperConfirm){
@@ -138,7 +139,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (lowerConfirm && numConfirm){
@@ -158,7 +159,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (lowerConfirm && spCharsConfirm){
@@ -178,7 +179,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (lowerConfirm && upperConfirm && numConfirm){
@@ -199,7 +200,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (lowerConfirm && upperConfirm && spCharsConfirm){
@@ -220,7 +221,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (upperConfirm && numConfirm){
@@ -240,7 +241,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (upperConfirm && spCharsConfirm){
@@ -260,7 +261,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
 
@@ -282,7 +283,7 @@ var generatePassword = function() {
     }
     
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
   if (numConfirm && spCharsConfirm){
@@ -301,7 +302,7 @@ var generatePassword = function() {
       return key;
     }
     
-    console.log(keyGen(passwordLength));
+    window.alert(keyGen(passwordLength));
   }
 
 };
