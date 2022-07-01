@@ -38,6 +38,7 @@
 
 ## GitHub Deployment
 
+https://felixa-github.github.io/Fizzy-Password-Generator/
 
 ## Questions
 
